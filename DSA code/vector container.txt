@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>   
+using namespace std;
+
+int main(){
+	vector<int>arr;
+	//cout<<arr.size();
+	arr.push_back(0);//arr.emplace_back() works same as push_back but takes less time than push back
+	arr.push_back(2);
+//	cout<<arr.size()<<endl;
+	arr.pop_back();
+	//arr.clear();//erase all
+	return 0;
+	vector<vector<int>>vec;//2D array
+	vector<int>raj1;
+	raj1.push_back(1);
+	raj1.push_back(2);
+	
+	vector<int>raj2;
+	raj2.push_back(10);
+	raj2.push_back(20);
+	
+	vec.push_back(raj1);
+	vec.push_back(raj2);
+	for(auto vctr:vec){
+		for(auto it:vctr){
+			cout<<it<<" ";
+		}
+		
+	}
+}

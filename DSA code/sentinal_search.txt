@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+void sentinelsearch(int arr[],int n,int key){
+	//last element of arr
+	int last=arr[n-1];
+	//element to be searched is
+	//placed at the last index
+	arr[n-1]=key;
+	int i = 0;
+	
+	while(arr[i]!=key)
+	i++;
+	
+	//put last element back
+	arr[n-1]=last;
+	
+	if((i<n-1)||(arr[n-1]==key))
+	cout<<key<<"found at index "<<i;
+	else
+	cout<<"element not found";
+}
+
+
+
+
+
+int main(){
+	int arr[]={10,23,124,415,55,5};
+	int n=sizeof(arr)/sizeof(arr[0]);
+	int key=180;
+	sentinelsearch(arr,n,key);
+	return 0;
+}

@@ -1,0 +1,93 @@
+#include<iostream>
+using namespace std;
+#define size 5
+class Queue{
+	private:
+		int item[size],front,rear;
+	public:
+		Queue(){
+			front=-1;
+			rear=-1;
+		}
+		
+		bool full(){
+			if(rear==size-1){
+				cout<<"Q is full";
+				return true;
+			}
+			return false;
+		}
+		
+		bool empty(){
+			if(front==rear||front>=rear){
+				cout<<"Q is empty";
+				return true;
+			}
+			return false;
+		}
+		
+		void enqueue(int element){
+			if(full()){
+				cout<<"Q is full";
+			}
+			else{
+				if(front==-1){
+					front=0;
+				}
+				rear++;
+				item[rear]=element;
+			}
+		}
+		int dequeue(){
+			int element;
+			if(empty()){
+				cout<<"Q is empty"<<"\n";
+				return -1;
+			}
+			else{
+				element=item[front];
+				if(front>=rear){
+					front=-1;
+					rear=-1;
+				}
+				else{
+					front++;
+				}
+				cout<<"deleted element is: "<<element<<endl;
+				return (element);
+			}
+		}
+		void display(){
+			int i;
+			if(empty()){
+				cout<<"Q is empty";
+			}
+			else{
+				cout<<"front index :"<<front;
+				cout<<endl;
+				cout<<"Q is :";
+				for(i=front;i<=rear;i++){
+					cout<<item[i]<<" ";
+					
+				}
+				cout<<endl;
+				cout<<"rear index: "<<rear<<endl;
+			}
+		}
+};
+
+
+
+int main(){
+	Queue q;
+	q.enqueue(10);
+	q.enqueue(20);
+	q.enqueue(30);
+	q.enqueue(40);
+	q.enqueue(50);
+	
+	q.display();
+	q.dequeue();
+	q.dequeue();
+	q.display();
+}

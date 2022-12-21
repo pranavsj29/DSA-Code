@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+
+
+int main(){
+	int arr[10]={1,2,3,4,5,6,7,8,9,10};
+	int first =0;//first index
+	int last=9;//last index
+	int mid=0;//middle value befor finding
+	int target=12;//element to be found
+	while(first<=last){//while first element is less than or equal to last then enter in loop
+		mid=(first+last)/2;//for calculating mid index
+		if(target>arr[mid]){	//if to be found value is greter than mid value
+			first=mid+1;	//updatind first index 
+			}
+		else if(target<arr[mid]){	//for comparison target less than arr mid index
+			last=mid-1;		//updating last index 
+		}
+		else{
+			
+			first=last+1;
+		//or use condition first=last+1;//updating first index 
+		}
+	}
+	if(target==arr[mid]){	
+		cout<<"found";
+	}
+	else{
+		cout<<"not found";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}

@@ -1,0 +1,21 @@
+//size of array cannot be incresed
+
+#include<iostream>
+using namespace std;
+
+int main(){
+	int*p=new int[5];
+	int*q=new int[10];
+
+	for(i=0;i<5;i++){
+		q[i]=p[i];
+		
+	}
+delete[]p;//have to delete first array for relesing memeory
+p=q;//now p and q both are pointing towards q array
+q=NULL;//now q is not pointing to anything
+
+
+
+
+}

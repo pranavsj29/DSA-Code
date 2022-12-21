@@ -1,0 +1,21 @@
+/*you have to know key value for direct hash search*/
+#include<iostream>
+using namespace std;
+
+
+int main(){
+	int arr[10]={11,22,33,44,55,66,77,88,99,110},i;
+	for(int i=0;i<10;i++){
+		cout<<"at index"<<" "<<i+1<<" element presnt is: "<<arr[i];
+		cout<<endl;
+	}
+	cout<<"element you want to take out of list,enter index: ";
+	cin>>i;
+	
+	cout<<"element you want is: "<<arr[i-1];
+	
+	
+	
+	
+return 0;	
+}

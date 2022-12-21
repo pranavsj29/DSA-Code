@@ -1,0 +1,142 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+class node{
+	public:
+	int data;
+	node*next;
+};
+
+
+
+void printlist(node*n){
+	cout<<"list is :";
+	while(n!=NULL){
+		cout<<n->data<<" ";
+		n = n->next;
+		
+	}
+}
+void push(node**head_ref,int new_data)
+{
+	node*new_node=new node();
+	new_node->data = new_data;
+	new_node->next = (*head_ref);
+	(*head_ref) = new_node;
+	cout<<new_data<<" ";
+}
+void insertAfter(node*prev_node,int new_data)
+{
+	if(prev_node == NULL){
+		cout<<"the given previous node cannont be null";
+	}
+	node*new_node   = new node();
+	new_node->data  = new_data;
+	new_node->next  = prev_node->next;
+	prev_node->next = new_node;
+}
+void append(node**head_ref,int new_data)
+{
+	node*new_node  = new node();
+	node*last      = *head_ref;
+	new_node->data = new_data;
+	new_node->next = NULL;
+	if(*head_ref== NULL){
+		*head_ref = new_node;
+		return ;
+	} 
+	while(last->next!=NULL){
+		last = last->next;
+	}
+	last->next = new_node;
+	return ;
+}
+int main(){
+node*head = NULL;
+node*seacond = NULL;
+node*third = NULL;
+node*new_node=NULL;
+
+
+head     = new node();
+seacond  = new node();
+third    = new node();
+new_node = new node();
+
+
+cout<<"enter element"<<" ";
+int a;
+cin>>a;
+head->data=a;
+head->next=seacond;
+
+cout<<"enter element"<<" ";
+int b;
+cin>>b;
+seacond->data=b;
+seacond->next=third;
+
+cout<<"enter element"<<" ";
+int c;
+cin>>c;
+third->data=c;
+third->next=NULL;
+
+int n,r;
+while(r!=5){
+cout<<"for printing list enter 1"<<endl<<"for push element 2"<<endl<<"for append element 3"<<endl<<"for insertAfter 4"<<endl<<"for exit 5"<<endl;
+cin>>n;
+
+		switch(n)
+	{
+		case 1:	
+		printlist(head);
+		cout<<endl;
+		break;
+		case 2:
+		cout<<"enter data to inseart at beiging:"<<" ";
+		int x;
+		cin>>x;
+		push(&head,x);
+		printlist(head);
+		cout<<endl;
+		break;
+		case 3:
+		cout<<"enter data to inseart at end:"<<" ";
+		int y;
+		cin>>y;
+		append(&head,y);
+		printlist(head);
+		cout<<endl;
+		break;
+		case 4:
+		cout<<"enter data to be added"<<" ";
+		int m;
+		cin>>m;
+		cout<<"enter data to inseart after node:"<<" ";
+		cout<<"head press 1"<<endl<<"seacond press 2"<<endl<<"third press 3"<<endl;
+		int z;
+		cin>>z;
+		if(z==1){
+		insertAfter(head,m);
+		printlist(head);
+		}
+		else if (z==2){
+			insertAfter(seacond,m);
+			printlist(head);
+			
+		}
+		else{
+			insertAfter(third,m);
+			printlist(head);
+			
+		}
+		break;
+		cout<<endl;
+		case 5:exit(0);
+		break;
+	}
+
+}
+	return 0;
+}

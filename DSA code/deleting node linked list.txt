@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+class node{
+	public:
+	int data;
+	node*next;
+};
+
+void display(node*n){
+	while(n!=NULL){
+		cout<<n->data<<" ";
+		n=n->next;
+	}
+}
+
+int Delete(node*first,int pos){
+	node*p,*q=NULL;
+	int x=-1,i;
+	if(pos==1){
+		x=first->data;
+		p=first;
+		first=first->next;
+		delete p;
+	}
+	else {
+		p=first;
+		q=NULL;
+		for(i=0;i<pos-1&&p;i++){
+			q=p;
+			p=p->next;
+		}
+		if(p){
+			q->next=p->next;
+			x=p->data;
+			delete p;
+		}
+	}
+	return x;
+}
+
+
+int main(){
+node*first=new node();
+node*seacond=new node();
+node*third=new node();
+
+first->data=1;
+first->next=seacond;
+
+seacond->data=2;
+seacond->next=third;
+
+third->data=3;
+third->next=NULL;
+
+
+Delete(first,2);
+display(first);	
+	
+	
+	
+	
+	return 0;
+}

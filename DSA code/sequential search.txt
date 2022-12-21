@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int a;
+	bool c = true;
+	cout<<"enter a element want to be search"<<" ";
+	cin>>a;
+	int b[5]={10,33,55,16,22};
+	for(int i=0;i<5;i++){
+		if(a==b[i]){       //for element search
+			cout<<"element is preasent at "<<i+1;//index starts from zero
+			c= false;//overwrite value
+			break;}
+	
+		}
+			if(c==true){
+			cout<<"element is not found";
+				}
+	return 0;
+}

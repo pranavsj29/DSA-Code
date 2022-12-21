@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+class node{
+	public:
+	int data;
+	node*next;
+};
+
+void display(node*n){
+	while(n!=NULL){
+		cout<<n->data<<" ";
+		n=n->next;
+	}
+}
+
+
+void concatinate(node*first,node*fourth){
+	node*p=first;
+	while(p!=NULL){
+		p=p->next;
+	}
+	p->next=fourth;
+	
+}
+
+
+int main(){
+node*first=new node();
+node*seacond=new node();
+node*third=new node();
+
+first->data=1;
+first->next=seacond;
+
+seacond->data=2;
+seacond->next=third;
+
+third->data=3;
+third->next=NULL;
+
+display(first);	
+
+node*fourth=new node();
+node*fifth=new node();
+node*sixth=new node();
+	
+fourth->data=4;
+fourth->next=fifth;
+
+fifth->data=5;
+fifth->next=sixth;
+
+sixth->data=6;
+sixth->next=NULL;	
+cout<<endl;
+
+display(fourth);
+	
+concatinate(first,fourth);
+display(fourth);
+return 0;
+
+}

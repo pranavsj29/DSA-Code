@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+class node{
+	public:
+	int data;
+	node*next;
+};
+
+
+void deletenode(node**head_ref,int key)
+{
+node*temp=*head_ref;
+node*prev=NULL;
+
+if(temp!=NULL && temp->data == key)
+{
+	*head_ref = temp->next;
+	delete temp;
+	return;
+	}	
+	
+else
+{
+	while(temp!=NULL && temp->data !=key)
+	{
+		prev = temp;
+		temp=temp->next;
+	}
+	if (temp==NULL)
+	return;
+	
+	prev->next = temp->next;
+	delete temp;
+}
+	
+	
+}
+
+void printlist(node*n){
+	while(n!=NULL){
+		cout<<n->data<<" ";
+		n = n->next;
+		
+	}
+}
+int main(){
+	node*head=NULL;
+	node*seacond =NULL;
+	node*third = NULL;
+	
+	head = new node();
+	seacond = new node();
+	third = new node();
+	
+	head->data=1;
+	head->next=seacond;
+	
+	seacond->data=2;
+	seacond->next=third;
+	
+	third->data=3;
+	third->next=NULL;
+	
+	deletenode(&head,2);
+	
+	
+	printlist(head);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}

@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+struct Reactangle
+{ 
+int length;
+int breadth;
+	
+};
+ void initialise(struct Reactangle*r1,int l,int b){  //call by address
+ 	r1->length=l;//assignd value using call by addresss
+ 	r1->breadth=b;//assignd value
+ 	
+ }
+ int area(	struct Reactangle r ){  //call by value
+ 	return r.length*r.breadth;//call by value so initial valus will not get change 
+ }
+ void changelength(struct Reactangle* r,int l ){    //call by address
+ 	r->length=l;//call by address intial values can be change
+ }
+
+int main(){
+	struct Reactangle r;
+	initialise(&r,10,5);//parameters are passing in below
+	area(r);
+	changelength(&r,20);
+	
+	
+}

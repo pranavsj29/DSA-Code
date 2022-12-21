@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int i=0,found;
+	int arr[5]={1,2,34,55,77};//must be in orderd pair
+	int key=55;//element to be found
+	if(key<arr[4]){		//if element is smaller than last element 
+		
+		while(key>arr[i]){
+			i++;//incremnt so that every elemnt get search
+		}
+	}	
+	else{
+		i=4;//if not found in list
+	}
+	
+	if(key==arr[i]){//if found ,key value and index values are similar
+		
+		cout<<"found at "<<i<<" index";
+	}
+	else{
+		cout<<"not found";
+	}
+		
+	return 0; 
+}

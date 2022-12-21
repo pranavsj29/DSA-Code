@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	char a[]={'W','E','L','C','O','M','E'};
+	int i;
+	for(i=0;a[i]!='\0';i++ ){
+		if(a[i]>=65 &&a[i]<=90){  //asci values
+			a[i]+=32;
+		}
+		else if(a[i]>='a'&&a[i]<=122){   //asci values 
+			a[i]-=32;
+		}
+	}
+	for(i=0;a[i]!='\0';i++){
+		cout<<a[i];
+	}
+return 0;	
+}
